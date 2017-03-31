@@ -78,7 +78,6 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public ProductData getProduct(int pid) throws ProductNotFoundException {
-		// TODO Auto-generated method stub
 
 		//check if pid is valid
 		if(!isValid(pid)){
@@ -121,15 +120,17 @@ public class ProductServiceImpl implements ProductService {
 			ObjectMapper mapper = new ObjectMapper();
 			
 			JsonNode prdRootNode = mapper.readTree(responseBody);
-			productTitle = prdRootNode.get("product").get("item").get("product_description").get("title").asText();
 			
-			System.out.println("Product title is "+productTitle);
+			if(prdRootNode!=null)
+				productTitle = prdRootNode.get("product").get("item").get("product_description").get("title").asText();
+			
+			logger.debug("Product title is "+productTitle);
 			
 		} catch (HttpClientErrorException ex) {
 			if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
-				throw new ProductNotFoundException("product  : " + pid + "has error", ex);
+				throw new ProductNotFoundException(HttpStatus.NOT_FOUND,pid+" not found");
 			} if (ex.getStatusCode() == HttpStatus.FORBIDDEN) {
-				throw new ProductNotFoundException("product service forbidden", ex);
+				throw new ProductNotFoundException(HttpStatus.FORBIDDEN,"product service forbid  the "+pid);
 			} 
 			else {
 				throw new RuntimeException("product id : " + pid, ex);
@@ -175,25 +176,6 @@ public class ProductServiceImpl implements ProductService {
 			ProductDao updatedProduct = productRepository.save(existingProduct);
 			logger.info("Updated Price for "+ pid+ "-" + updatedProduct.getCurrentPrice() );
 				
-			return prdDaoMapper.convertToBean(product);
-		}
-
-		@Override
-		public ProductData insertProduct(ProductDao product) throws ProductNotFoundException {
-			
-			int pid = product.getPid();
-			
-			//check if pid is valid
-			if(!isValid(pid)){
-				throw new ProductNotFoundException("Invalid pid");
-			}
-			
-			//add product to database
-			ProductDao existingProduct = productRepository.findByPid(pid);
-			if (existingProduct == null) {
-				productRepository.save(product);
-			}
-			
 			return prdDaoMapper.convertToBean(product);
 		}
 }

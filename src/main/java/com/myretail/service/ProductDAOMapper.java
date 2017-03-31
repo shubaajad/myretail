@@ -15,7 +15,7 @@ public class ProductDAOMapper {
 		if(product!=null){
 			productData = new ProductData();
 			
-			productData.setPid(product.getPid());
+			productData.setId(product.getPid());
 			productData.setTitle(product.getTitle());
 			
 			PriceData priceData = new PriceData();
@@ -28,7 +28,7 @@ public class ProductDAOMapper {
 	
 	public ProductDao convertToDao(ProductData productData){
 		
-		ProductDao productDao = new ProductDao(productData.getPid());
+		ProductDao productDao = new ProductDao(productData.getId());
 		productDao.setCurrentPrice(Double.valueOf(productData.getPriceData().getPrice()));
 		return productDao;
 	}

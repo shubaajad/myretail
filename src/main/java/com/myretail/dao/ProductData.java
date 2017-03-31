@@ -24,14 +24,14 @@ public class ProductData {
 	/**
 	 * @return the pid
 	 */
-	public int getPid() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param pid the pid to set
 	 */
-	public void setPid(int pid) {
+	public void setId(int pid) {
 		this.id = pid;
 	}
 
@@ -59,7 +59,7 @@ public class ProductData {
 
 	@Override
 	public String toString() {
-		return "ProductData [pid=" + id + ", title=" + title + ", priceData=" + priceData + ", getPid()=" + getPid()
+		return "ProductData [id=" + id + ", title=" + title + ", priceData=" + priceData + ", getPid()=" + getId()
 				+ ", getTitle()=" + getTitle() + ", getPriceData()=" + getPriceData() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
