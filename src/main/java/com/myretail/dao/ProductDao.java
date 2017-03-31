@@ -9,7 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class ProductDao {
 	
 	@Id
-	@Indexed 
+	private String id;
+	
+	@Indexed
 	private int pid;
 	
 	private String title;

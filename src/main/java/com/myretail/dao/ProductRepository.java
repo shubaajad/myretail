@@ -12,10 +12,10 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository("ProductRepository")
-public interface ProductRepository extends MongoRepository<ProductDao, Integer> {
+public interface ProductRepository extends MongoRepository<ProductDao, String> {
 	
 	@Query("{ 'pid' : ?0 }")
-	public ProductDao findByPid(int productId);
+	public ProductDao findByPid(int pid);
 	
 	@SuppressWarnings("unchecked")
 	public ProductDao save(ProductDao productDao);
