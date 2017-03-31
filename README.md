@@ -2,7 +2,7 @@
 
 My Retail App is a Spring Boot application configured to run at http://localhost:8181/myretail/  to get Product Details and to update Price.
 
-#To start the application
+# To start the application
 **Build:**
 mvn clean install (optionally with -DskipTests)
 
