@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.myretail.service;
 
 import java.io.IOException;
@@ -28,10 +25,6 @@ import com.myretail.dao.ProductData;
 import com.myretail.dao.ProductRepository;
 import com.myretail.service.exception.ProductNotFoundException;
 
-/**
- * @author sdevana
- *
- */
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -114,6 +107,7 @@ public class ProductServiceImpl implements ProductService {
 		UriComponents uriComponents = UriComponentsBuilder.fromHttpUrl(getURIPath(pid)).queryParam("excludes",excludes).build();
 
 		try {
+			
 			response = restTemplate.getForEntity(uriComponents.encode().toUri(), String.class);
 			responseBody = response.getBody();
 			

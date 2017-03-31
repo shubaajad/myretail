@@ -2,10 +2,9 @@ package com.myretail.service.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class ProductNotFoundException extends Exception {
-	
-	 private HttpStatus status;
-	 private String message;
+public class ProductNotFoundException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+	private HttpStatus status;
 
 	public ProductNotFoundException() {
         super();
@@ -20,11 +19,20 @@ public class ProductNotFoundException extends Exception {
     }
     
     public ProductNotFoundException(HttpStatus status,String message){
-        this.status=status;
-        this.message=message;
+        super(message);
+    	this.setStatus(status);
+        
     }
 
     public ProductNotFoundException(Throwable cause) {
         super(cause);
     }
+
+	public HttpStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(HttpStatus status) {
+		this.status = status;
+	}
 }

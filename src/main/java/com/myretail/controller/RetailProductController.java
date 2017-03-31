@@ -39,7 +39,7 @@ public class RetailProductController {
 		 * @throws ProductNotFoundException 
 		 */
 		@RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
-	    public ResponseEntity<ProductData> getProductDetails(@PathVariable int productId) throws ProductNotFoundException {					
+	    public ResponseEntity<ProductData> getProductDetails(@PathVariable int productId){					
 	        ProductData product = productService.getProduct(productId);
 	        return new ResponseEntity<>(product, HttpStatus.OK);
 	    }
@@ -52,7 +52,7 @@ public class RetailProductController {
 		 */
 		@RequestMapping(value = "/products/{productId}", method = RequestMethod.PUT)
 	    public void updateProductPrice(@RequestBody ProductData productRequest,                                        
-	                                   @PathVariable int productId) throws ProductNotFoundException {
+	                                   @PathVariable int productId) {
 			ProductDao product = prdDaoMapper.convertToDao(productRequest);
 			productService.updateProductPrice(product);	
 	    }
