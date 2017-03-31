@@ -22,14 +22,14 @@ public class ProductData {
 	private PriceData priceData;
 
 	/**
-	 * @return the pid
+	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * @param pid the pid to set
+	 * @param id the pid to set
 	 */
 	public void setId(int pid) {
 		this.id = pid;

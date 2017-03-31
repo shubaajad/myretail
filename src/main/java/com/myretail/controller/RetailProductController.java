@@ -18,10 +18,6 @@ import com.myretail.service.ProductDAOMapper;
 import com.myretail.service.ProductService;
 import com.myretail.service.exception.ProductNotFoundException;
 
-/**
- * @author sdevana
- *
- */
 @RestController
 @RequestMapping("/myretail")
 public class RetailProductController {
@@ -46,7 +42,7 @@ public class RetailProductController {
 		
 		/**
 		 * Update existing Product Price from the Http Body Resource
-		 * @param productRequestDTO
+		 * @param ProductData
 		 * @param productId
 		 * @throws ProductNotFoundException 
 		 */
