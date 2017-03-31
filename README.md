@@ -9,7 +9,7 @@ db.getCollection('Product').save({ "pid": 13860428, "title": "The Big Lebowski (
 
 **Myretail hosts two REST services:**
 
-** 1) GET /products/{productId}:**
+**1) GET /products/{productId}**
    
   This Rest Service aggregates price information from MongoDB and product Title from external Target API and
   provides a JSON Response.
@@ -30,7 +30,7 @@ db.getCollection('Product').save({ "pid": 13860428, "title": "The Big Lebowski (
     }
 }
   
-** 2) PUT /products/{productid}:**
+**2) PUT /products/{productid}**
   
   This Rest Service is used to update the price of an existing product in MongoDB
 
