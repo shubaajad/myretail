@@ -2,6 +2,14 @@
 
 My Retail App is a Spring Boot application configured to run at http://localhost:8181/myretail/  to get Product Details and to update Price.
 
+#To start the application
+**Build:**
+mvn clean install (optionally with -DskipTests)
+
+**Run the server:**
+java -jar myretail-0.0.1-SNAPSHOT.jar
+
+
 MongoDB is used to Store the product information(productId, title,price and currency code) in product Collection.
 
 # Sample Mongo Query to insert documents:
