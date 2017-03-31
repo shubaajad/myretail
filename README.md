@@ -14,14 +14,14 @@ db.getCollection('Product').save({ "pid": 13860428, "title": "The Big Lebowski (
   This Rest Service aggregates price information from MongoDB and product Title from external Target API and
   provides a JSON Response.
   
-  Sample:
+  # Sample:#
   
-  Request: GET   http://localhost:8181/myretail/products/13860428
+  # Request: #
+  GET   http://localhost:8181/myretail/products/13860428
   Content-Type: application/json
   
-  Response:
+  # Response:#
   {
-    "pid": 13860428,
     "id": 13860428,
     "name": "The Big Lebowski (Blu-ray)",
     "current_price": {
@@ -30,17 +30,16 @@ db.getCollection('Product').save({ "pid": 13860428, "title": "The Big Lebowski (
     }
 }
   
-  
 # 2) PUT /products/{productid}:
   
   This Rest Service is used to update the price of an existing product in MongoDB
 
-  Sample:
+  # Sample:#
   PUT http://localhost:8181/myretail/products/13860428
   Content-Type: application/json
   
-  Request:
+  # Request: #
    { "id": 13860428, "name": "The Big Lebowski (Blu-ray)", "current_price": { "value": "100.00", "currency_code": "USD" } }
    
-   Response:
+   # Response:# 
    200 OK
